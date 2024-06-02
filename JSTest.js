@@ -8,22 +8,45 @@ Assessment Requirements
 4. For good measure, getTotalSupply() should return the number of NFT's you have created
 */
 
-// Create a variable to hold your NFTs
+// create a variable to hold your NFT's
 let nftCollection = [];
 
-// This function will take in some values as parameters, create an
+// this function will take in some values as parameters, create an
 // NFT object using the parameters passed to it for its metadata, 
 // and store it in the variable above.
-function mintNFT(name, artist, description, dateMinted) {
-    // Create an NFT object
-    const nft = {
-        name: name,
-        artist: artist,
-        description: description,
-        dateMinted: dateMinted
-    };
-    
-    // Store the NFT in the nftCollection array
+function mintNFT (name, description, image) {
+  let nft = {
+    name: name,
+    description: description,
+    image: image
+  };
+  nftCollection.push(nft);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+  for (let i = 0; i < nftCollection.length; i++) {
+    console.log("Name: " + nftCollection[i].name);
+    console.log("Description: " + nftCollection[i].description);
+    console.log("Image: " + nftCollection[i].image);
+    console.log("------------------------");
+  }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+  console.log("Total NFTs: " + nftCollection.length);
+}
+
+// call your functions below this line
+mintNFT("NFT 1", "This is NFT 1", "image1.png");
+mintNFT("NFT 2", "This is NFT 2", "image2.png");
+mintNFT("NFT 3", "This is NFT 3", "image3.png");
+
+listNFTs();
+
+getTotalSupply(); Store the NFT in the nftCollection array
     nftCollection.push(nft);
 }
 
